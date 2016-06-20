@@ -30,5 +30,7 @@ wget -O /dev/null -q https://gateway.ipfs.io/ipfs/${ID}/data/data.json
 wget -O /dev/null -q http://ipfs.muze.nl/ipfs/${ID}/data/data.json
 
 # public to ipns
-/tmp/tools/dns-update.sh "/ipfs/${ID}"
+if [ "${TRAVIS_BRANCH}" == "master" -a "${TRAVIS_PULL_REQUEST}" == "false" ] ; then
+	/tmp/tools/dns-update.sh "/ipfs/${ID}"
+fi
 
