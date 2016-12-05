@@ -1,4 +1,4 @@
-language: node_js
+language: go
 sudo: false
 cache:
    directories:
@@ -6,6 +6,9 @@ cache:
 
 node_js:
 - '6'
+
+go:
+   - 1.7.3
 
 before_install:
 - mv .tools /tmp/tools/
