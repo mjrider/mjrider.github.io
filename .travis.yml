@@ -17,7 +17,7 @@ install:
 - export GOPATH="${HOME}/gocode/"
 - export PATH="${HOME}/gocode/bin:$PATH"
 - go get -u github.com/ipfs/ipfs-update
-- "$GOPATH/bin/ipfs-update install v0.4.4"
+- "$GOPATH/bin/ipfs-update install v0.4.2"
 - ipfs init --empty-repo
 - ipfs bootstrap add '/ip4/5.172.41.102/tcp/4001/ipfs/QmaEbSMwN9pWJgot9GSw5npgLengbYQU4DDwoxuHbavqjb'
 - "( nohup ipfs daemon | tee /tmp/nohup.out ) &"
