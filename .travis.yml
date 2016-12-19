@@ -18,7 +18,7 @@ install:
 - export PATH="${HOME}/gocode/bin:$PATH"
 - wget -O /tmp/ipfs-update.tar.gz https://dist.ipfs.io/ipfs-update/v1.5.0/ipfs-update_v1.5.0_linux-amd64.tar.gz
 - tar -C /tmp/ -xvf /tmp/ipfs-update.tar.gz
-- /tmp/ipfs-update/ipfs-update --verbose install v0.4.4"
+- /tmp/ipfs-update/ipfs-update --verbose install v0.4.4
 - ipfs init --empty-repo
 - ipfs bootstrap add '/ip4/5.172.41.102/tcp/4001/ipfs/QmaEbSMwN9pWJgot9GSw5npgLengbYQU4DDwoxuHbavqjb'
 - "( nohup ipfs daemon | tee /tmp/nohup.out ) &"
