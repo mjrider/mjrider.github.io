@@ -1,14 +1,11 @@
-language: go
+language: node_js
 sudo: false
 cache:
    directories:
-      - $HOME/gocode/
+      - $HOME/download/
 
 node_js:
 - '6'
-
-go:
-   - 1.7.3
 
 before_install:
 - mv .tools /tmp/tools/
@@ -16,12 +13,12 @@ before_install:
 install:
 - export GOPATH="${HOME}/gocode/"
 - export PATH="${HOME}/gocode/bin:$PATH"
-- wget -O /tmp/ipfs-update.tar.gz https://dist.ipfs.io/ipfs-update/v1.5.0/ipfs-update_v1.5.0_linux-amd64.tar.gz
-- tar -C /tmp/ -xvf /tmp/ipfs-update.tar.gz
-- /tmp/ipfs-update/ipfs-update --verbose install v0.4.4
-- ipfs init --empty-repo
-- ipfs bootstrap add '/ip4/5.172.41.102/tcp/4001/ipfs/QmaEbSMwN9pWJgot9GSw5npgLengbYQU4DDwoxuHbavqjb'
-- "( nohup ipfs daemon | tee /tmp/nohup.out ) &"
+- mkdir $HOME/download/
+- [[ -e $HOME/download/ipfs.tar.gz ]] || wget -q -O $HOME/download/ipfs.tar.gz https://dist.ipfs.io/go-ipfs/v0.4.4/go-ipfs_v0.4.4_linux-amd64.tar.gz
+- tar -C /tmp/ -xvf $HOME/download/ipfs.tar.gz
+- /tmp/go-ipfs/ipfs init --empty-repo
+- /tmp/go-ipfs/ipfs bootstrap add '/ip4/5.172.41.102/tcp/4001/ipfs/QmaEbSMwN9pWJgot9GSw5npgLengbYQU4DDwoxuHbavqjb'
+- "( nohup /tmp/go-ipfs/ipfs daemon | tee /tmp/nohup.out ) &"
 - npm install json -g
 
 script: "/tmp/tools/build.sh"
