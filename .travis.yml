@@ -13,7 +13,7 @@ before_install:
 install:
 - export GOPATH="${HOME}/gocode/"
 - export PATH="${HOME}/gocode/bin:$PATH"
-- mkdir "${HOME}/download/"
+- "[[ -d ${HOME}/download/ ]] || mkdir ${HOME}/download/"
 - "[[ -e ${HOME}/download/ipfs.tar.gz ]] || wget -q -O ${HOME}/download/ipfs.tar.gz https://dist.ipfs.io/go-ipfs/v0.4.4/go-ipfs_v0.4.4_linux-amd64.tar.gz"
 - tar -C /tmp/ -xvf $HOME/download/ipfs.tar.gz
 - /tmp/go-ipfs/ipfs init --empty-repo
