@@ -55,11 +55,7 @@
 
   <script>
 	var script = document.createElement("SCRIPT");
-	var proto = 'https:';
-	if ( document.location.protocol == 'http:' ) {
-		proto = document.location.protocol;
-	}
-	script.src = proto + "//cdn.simplyedit.io/1/simply-edit.js";
+	script.src = "https://cdn.simplyedit.io/1/simply-edit.js";
 	script.setAttribute('data-api-key','absurd-rain-2136');
 	if (document.location.host == "mjrider.github.io" ) { 
 		script.setAttribute('data-simply-endpoint','https://github.com/mjrider/mjrider.github.io/');
